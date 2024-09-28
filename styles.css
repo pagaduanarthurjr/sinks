@@ -1,35 +1,107 @@
-/* Outdated CSS */
+:root {
+    --primary-bg-color: #333333;
+    --secondary-bg-color: #cccccc;
+    --primary-text-color: white;
+    --card-bg-color: #f9f9f9;
+    --border-color: #ddd;
+    --font-family: Arial, sans-serif;
+    --padding: 20px;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.header {
+    background-color: var(--secondary-bg-color);
+    text-align: center;
+    padding: var(--padding);
+}
+
+.nav {
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
+}
+
+.nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-h1 {
-    margin: 0;
+.nav li {
+    margin: 0 1rem;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
+.nav a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-li {
-    margin: 0;
-    padding: 0;
+.nav a:hover {
+    background-color: var(--secondary-bg-color);
+    color: var(--primary-bg-color);
+    border-radius: 5px;
 }
 
-p {
-    margin: 0;
-    padding: 0;
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 50%, 400px), 1fr));
+    gap: var(--padding);
+    padding: var(--padding);
 }
 
-img {
+.sink-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 50%, 400px), 1fr));
+    gap: var(--padding);
+}
+
+.sink-card,
+.sink-card-full {
+    background-color: var(--card-bg-color);
+    padding: var(--padding);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.sink-card:hover,
+.sink-card-full:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.sink-card img,
+.sink-card-full img {
     width: 100%;
     height: auto;
+    margin-bottom: 1rem;
+    border-radius: 8px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+.footer {
+    background-color: var(--secondary-bg-color);
+    text-align: center;
+    padding: var(--padding);
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+    .nav ul {
+        flex-direction: column;
+    }
+
+    .nav li {
+        margin: 0.5rem 0;
+    }
 }
